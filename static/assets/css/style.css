@@ -37,11 +37,11 @@
 :root {
   /* Betonoptik: helle, warme Grautöne + Gold/Bronze als Akzent */
   --background: #e8e6e2;
-  --foreground: #262523;
+  --foreground: #1d1c1a;
   --card: #f4f3f0;
   --secondary: #dbd8d3;
   --dark-surface: #d3d0ca;
-  --muted: #5c5a56;
+  --muted: #45433f;
   --border: #c9c5be;
   --gold: #a8812f;
   --gold-light: #bf9640;
@@ -61,6 +61,7 @@ body {
   background: var(--background) url("../img/concrete-tile.jpg") repeat;
   color: var(--foreground);
   font-family: var(--font-body);
+  font-weight: 500;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -81,7 +82,7 @@ svg.icon { width: 1rem; height: 1rem; flex-shrink: 0; fill: none; stroke: curren
 
 .subtitle {
   font-size: .875rem; font-weight: 500; text-transform: uppercase;
-  letter-spacing: .3em; color: #8c6b24;
+  font-weight: 700; letter-spacing: .3em; color: #7a5c1c;
 }
 @media (min-width: 768px) { .subtitle { font-size: 1rem; } }
 .title { font-size: 1.875rem; line-height: 1.2; letter-spacing: .025em; }
@@ -103,13 +104,14 @@ svg.icon { width: 1rem; height: 1rem; flex-shrink: 0; fill: none; stroke: curren
 }
 .btn-gold { background: var(--gold); color: #fff; }
 .btn-gold:hover { background: var(--gold-light); }
-.btn-outline { border: 1px solid rgb(38 37 35 / .35); color: var(--foreground); background: rgb(255 255 255 / .25); }
+.btn-outline { border: 1px solid rgb(38 37 35 / .55); color: var(--foreground); background: rgb(255 255 255 / .55); }
 .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
 
 /* ---------- Navigation ---------- */
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-  padding: 1.25rem 0; transition: all .5s; border-bottom: 1px solid transparent;
+  padding: 1rem 0; transition: all .5s; border-bottom: 1px solid transparent;
+  background: rgb(var(--bg-rgb) / .78); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
 }
 .nav.scrolled {
   background: rgb(var(--bg-rgb) / .95); box-shadow: 0 4px 20px rgba(0,0,0,.06); backdrop-filter: blur(12px);
@@ -118,7 +120,7 @@ svg.icon { width: 1rem; height: 1rem; flex-shrink: 0; fill: none; stroke: curren
 .nav-inner { display: flex; align-items: center; justify-content: space-between; }
 .nav-logo img { height: 3rem; width: auto; }
 .nav-links { display: none; align-items: center; gap: 2rem; }
-.nav-links a:not(.btn) { font-size: .875rem; text-transform: uppercase; letter-spacing: .2em; color: var(--muted); }
+.nav-links a:not(.btn) { font-size: .875rem; font-weight: 600; text-transform: uppercase; letter-spacing: .18em; color: #2c2b28; }
 .nav-links .btn { padding: .625rem 1.25rem; font-size: .875rem; letter-spacing: .05em; }
 .nav-dropdown { position: relative; }
 .nav-dropdown-label { display: inline-flex; align-items: center; gap: .3rem; }
@@ -145,7 +147,7 @@ svg.icon { width: 1rem; height: 1rem; flex-shrink: 0; fill: none; stroke: curren
 .nav.open { background: rgb(var(--bg-rgb) / .98); }
 .nav.open .nav-mobile { display: block; }
 .nav-mobile .container { display: flex; flex-direction: column; gap: 1rem; padding-top: 1.5rem; padding-bottom: 1.5rem; }
-.nav-mobile a:not(.btn) { font-size: .875rem; text-transform: uppercase; letter-spacing: .2em; color: var(--muted); padding: .5rem 0; }
+.nav-mobile a:not(.btn) { font-size: .875rem; font-weight: 600; text-transform: uppercase; letter-spacing: .18em; color: #2c2b28; padding: .5rem 0; }
 .nav-mobile .btn { margin-top: .5rem; padding: .75rem 1.25rem; letter-spacing: .05em; }
 @media (min-width: 1024px) {
   .nav-links { display: flex; }
@@ -155,7 +157,7 @@ svg.icon { width: 1rem; height: 1rem; flex-shrink: 0; fill: none; stroke: curren
 /* ---------- Hero ---------- */
 .hero { position: relative; min-height: 100vh; min-height: 100svh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
 .hero-bg { position: absolute; inset: 0; background: #cfccc6 url("../img/concrete-wall.jpg") center / cover no-repeat; }
-.hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgb(var(--bg-rgb) / 0) 55%, rgb(var(--bg-rgb) / .85)); }
+.hero-overlay { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 55% at 50% 52%, rgb(242 240 236 / .78) 0%, rgb(242 240 236 / .45) 55%, rgb(242 240 236 / .1) 100%), linear-gradient(to bottom, rgb(var(--bg-rgb) / 0) 60%, rgb(var(--bg-rgb) / .9)); }
 .hero-content { position: relative; z-index: 1; text-align: center; padding: 0 1rem; max-width: 56rem; }
 .hero-h1 { margin: 0; font-weight: 400; }
 .hero-logo {
@@ -171,9 +173,9 @@ svg.icon { width: 1rem; height: 1rem; flex-shrink: 0; fill: none; stroke: curren
 @media (min-width: 768px) { .hero-name { font-size: 4.5rem; } }
 @media (min-width: 1024px) { .hero-name { font-size: 6rem; } }
 .hero .gold-line { width: 8rem; margin: 0 auto 2rem; }
-.hero-claim { font-family: var(--font-display); font-style: italic; font-size: 1.5rem; color: var(--foreground); margin-bottom: 1rem; }
+.hero-claim { font-family: var(--font-display); font-style: italic; font-weight: 500; font-size: 1.5rem; color: var(--foreground); margin-bottom: 1rem; }
 @media (min-width: 768px) { .hero-claim { font-size: 1.875rem; } }
-.hero-text { color: var(--muted); margin-bottom: 3rem; }
+.hero-text { color: var(--foreground); font-weight: 500; margin-bottom: 3rem; }
 @media (min-width: 768px) { .hero-text { font-size: 1.125rem; } }
 .hero-buttons { display: flex; flex-direction: column; gap: 1rem; justify-content: center; }
 @media (min-width: 640px) { .hero-buttons { flex-direction: row; } }
@@ -358,15 +360,15 @@ svg.icon { width: 1rem; height: 1rem; flex-shrink: 0; fill: none; stroke: curren
 /* ---------- Leistungs-Unterseiten ---------- */
 .page-hero { position: relative; min-height: 62vh; display: flex; align-items: flex-end; overflow: hidden; padding: 9rem 0 4rem; }
 .page-hero .hero-bg { background-position: center; }
-.page-hero .hero-overlay { background: linear-gradient(to bottom, rgb(var(--bg-rgb) / .35), rgb(var(--bg-rgb) / .55) 60%, rgb(var(--bg-rgb) / .95)); }
+.page-hero .hero-overlay { background: linear-gradient(to right, rgb(242 240 236 / .85), rgb(242 240 236 / .55) 70%, rgb(242 240 236 / .35)), linear-gradient(to bottom, transparent 60%, rgb(var(--bg-rgb) / .95)); }
 .page-hero .container { position: relative; z-index: 1; }
-.breadcrumb { font-size: .75rem; text-transform: uppercase; letter-spacing: .15em; color: var(--muted); margin-bottom: 1.25rem; }
+.breadcrumb { font-size: .75rem; font-weight: 600; text-transform: uppercase; letter-spacing: .15em; color: var(--muted); margin-bottom: 1.25rem; }
 .breadcrumb a:hover { color: var(--gold); }
 .breadcrumb span { margin: 0 .5rem; color: var(--gold); }
 .page-hero h1 { font-size: 2.25rem; line-height: 1.15; max-width: 48rem; }
 @media (min-width: 768px) { .page-hero h1 { font-size: 3.25rem; } }
 .page-hero .gold-line { margin: 1.5rem 0; }
-.page-hero .lead { max-width: 42rem; font-size: 1.05rem; line-height: 1.7; color: var(--foreground); margin-bottom: 2rem; }
+.page-hero .lead { max-width: 42rem; font-size: 1.05rem; font-weight: 500; line-height: 1.7; color: var(--foreground); margin-bottom: 2rem; }
 .page-hero .hero-buttons { justify-content: flex-start; }
 
 .page-body { display: grid; gap: 3rem; padding-top: 4rem; padding-bottom: 5rem; }
