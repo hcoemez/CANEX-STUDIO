@@ -111,6 +111,20 @@
     });
   }
 
+  /* ---------- Schnellkontakt unten rechts ---------- */
+  var fab = document.getElementById("fab");
+  if (fab) {
+    var fabBtn = fab.querySelector(".fab-toggle");
+    var setFab = function (open) {
+      fab.classList.toggle("open", open);
+      fabBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      fabBtn.setAttribute("aria-label", open ? "Kontaktmöglichkeiten schließen" : "Kontaktmöglichkeiten öffnen");
+    };
+    fabBtn.addEventListener("click", function (e) { e.stopPropagation(); setFab(!fab.classList.contains("open")); });
+    document.addEventListener("click", function (e) { if (!fab.contains(e.target)) setFab(false); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") setFab(false); });
+  }
+
   /* ---------- Aktuelles Jahr im Footer ---------- */
   document.querySelectorAll("[data-year]").forEach(function (el) {
     el.textContent = new Date().getFullYear();
