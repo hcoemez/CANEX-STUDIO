@@ -45,10 +45,22 @@ jobs:
           SFTP_USER: ${{ secrets.SFTP_USER }}
           SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
         run: |
-          lftp -c "
-            set sftp:auto-confirm yes;
-            set net:max-retries 3;
-            set net:timeout 30;
-            open -u \"$SFTP_USER\",\"$SFTP_PASSWORD\" sftp://$SFTP_HOST;
-            mirror --reverse --delete --verbose --exclude-glob .DS_Store site/ $REMOTE_DIR/
-          "
+          if [ -z "$SFTP_USER" ] || [ -z "$SFTP_PASSWORD" ]; then
+            echo "::error::Secrets SFTP_USER und SFTP_PASSWORD fehlen (Settings → Secrets and variables → Actions)."
+            exit 1
+          fi
+          CONNECT="set sftp:auto-confirm yes; set net:max-retries 3; set net:timeout 30; open -u \"$SFTP_USER\",\"$SFTP_PASSWORD\" sftp://$SFTP_HOST"
+
+          # Ein SFTP-Benutzer, der auf /public beschränkt ist, startet direkt
+          # in diesem Ordner. Ein Benutzer mit Zugriff auf den ganzen Webspace
+          # sieht dagegen die Ordner "public" und "intern".
+          LISTING=$(lftp -c "$CONNECT; cls -1 /")
+          echo "Inhalt des SFTP-Startordners:"; echo "$LISTING"
+          if echo "$LISTING" | grep -qx 'public/\?'; then
+            TARGET="$REMOTE_DIR"
+          else
+            TARGET="/"
+          fi
+          echo "Ziel: $TARGET"
+
+          lftp -c "$CONNECT; mirror --reverse --delete --verbose --exclude-glob .DS_Store site/ $TARGET"
