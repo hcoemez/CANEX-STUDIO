@@ -41,9 +41,12 @@ BUSINESS = {
     "INSTAGRAM": "https://www.instagram.com/canexstudio_/",
     "TIKTOK": "https://www.tiktok.com/@canex_studio",
     "SITE": SITE,
+    # Öffnungszeiten als Text (oben in OPENING_HOURS für Google ebenfalls anpassen)
+    "HOURS_HTML": "Di – Fr: 09:00 – 18:30 Uhr<br>Sa: 09:00 – 16:00 Uhr<br>So &amp; Mo: geschlossen",
+    "HOURS_TEXT": "Dienstag bis Freitag von 9 bis 18:30 Uhr und samstags von 9 bis 16 Uhr, sonntags und montags ist geschlossen",
 }
 OPENING_HOURS = [
-    (["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "09:00", "19:00"),
+    (["Tuesday", "Wednesday", "Thursday", "Friday"], "09:00", "18:30"),
     (["Saturday"], "09:00", "16:00"),
 ]
 
