@@ -286,6 +286,21 @@ svg.icon { width: 1rem; height: 1rem; flex-shrink: 0; fill: none; stroke: curren
 .review-dots button { width: .5rem; height: .5rem; border-radius: 50%; background: rgb(140 140 140 / .3); }
 .review-dots button.active { background: var(--gold); }
 
+/* ---------- Google-Bewertungen ---------- */
+.g-stars { display: inline-flex; gap: 2px; color: #e3a008; }
+.g-stars svg { width: 1rem; height: 1rem; fill: currentColor; stroke: none; }
+.g-badge { display: inline-flex; align-items: center; gap: .5rem; margin-top: 1.75rem; padding: .55rem 1rem; font-size: .85rem; color: var(--foreground);
+  background: rgb(255 255 255 / .7); border: 1px solid var(--border); border-radius: 999px; transition: background .2s, border-color .2s; }
+.g-badge:hover { background: #fff; border-color: rgb(var(--gold-rgb) / .6); }
+.g-badge-box { margin: 0 0 1.5rem; width: 100%; justify-content: center; border-radius: 0; font-size: .8rem; }
+.g-reviews { max-width: 44rem; text-align: center; }
+.g-reviews .gold-line { margin: 1rem auto 2rem; }
+.g-score { display: inline-flex; align-items: center; gap: 1.25rem; background: var(--card); border: 1px solid var(--border); padding: 1.25rem 2rem; margin-bottom: 1.5rem; text-align: left; }
+.g-number { font-family: var(--font-display); font-weight: 700; font-size: 3.25rem; line-height: 1; }
+.g-score .g-stars svg { width: 1.35rem; height: 1.35rem; }
+.g-score p { margin-top: .35rem; font-size: .9rem; color: var(--muted); }
+.g-text { line-height: 1.7; margin-bottom: 2rem; }
+
 /* ---------- Kontakt ---------- */
 .contact-grid { display: grid; gap: 3rem; }
 @media (min-width: 1024px) { .contact-grid { grid-template-columns: 1fr 1fr; } }

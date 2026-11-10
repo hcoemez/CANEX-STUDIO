@@ -42,6 +42,10 @@ BUSINESS = {
     "TIKTOK": "https://www.tiktok.com/@canex_studio",
     "SITE": SITE,
     # Öffnungszeiten als Text (oben in OPENING_HOURS für Google ebenfalls anpassen)
+    # Google-Bewertung (Stand manuell pflegen)
+    "RATING": "4,9",
+    "REVIEW_COUNT": "29",
+    "GOOGLE_MAPS": "https://www.google.com/maps/search/?api=1&amp;query=Canex%20Kaiserstra%C3%9Fe%2052%2045468%20M%C3%BClheim%20an%20der%20Ruhr",
     "HOURS_HTML": "Di – Fr: 09:00 – 18:30 Uhr<br>Sa: 09:00 – 16:00 Uhr<br>So &amp; Mo: geschlossen",
     "HOURS_TEXT": "Dienstag bis Freitag von 9 bis 18:30 Uhr und samstags von 9 bis 16 Uhr, sonntags und montags ist geschlossen",
 }

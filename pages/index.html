@@ -22,6 +22,7 @@ preload: /assets/img/concrete-wall.jpg
       <a href="/#services" class="btn btn-gold"><svg class="icon"><use href="#i-scissors"/></svg>Leistungen &amp; Preise</a>
       <a href="tel:{{PHONE_TEL}}" class="btn btn-outline"><svg class="icon"><use href="#i-phone"/></svg>Jetzt anrufen</a>
     </div>
+    <a href="{{GOOGLE_MAPS}}" target="_blank" rel="noopener" class="g-badge reveal d8"><span class="g-stars" aria-hidden="true"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></span><strong>{{RATING}}</strong> bei Google · {{REVIEW_COUNT}} Bewertungen</a>
   </div>
   <div class="hero-scroll reveal fade d8"></div>
 </section>
@@ -126,33 +127,23 @@ preload: /assets/img/concrete-wall.jpg
   </div>
 </section>
 
-<!-- ================= BEWERTUNGEN =================
-     Vorübergehend ausgeblendet: Die bisherigen Bewertungen stammen sehr
-     wahrscheinlich aus der Lovable-Vorlage und sind nicht echt. Erfundene
-     Kundenbewertungen sind wettbewerbsrechtlich riskant (UWG).
-     Zum Wieder-Einblenden: echte Bewertungen eintragen, Kommentar-Zeichen
-     entfernen und den Menüpunkt "Bewertungen" wieder ergänzen.
-
+<!-- ================= GOOGLE-BEWERTUNGEN ================= -->
 <section id="reviews" class="section bg-background">
-  <div class="container reviews" data-reviews>
-    <div class="section-head">
-      <p class="subtitle reveal">Kundenstimmen</p>
-      <h2 class="title reveal d1">Bewertungen</h2>
-      <div class="gold-line reveal fade d2"></div>
+  <div class="container g-reviews reveal">
+    <p class="subtitle">Kundenstimmen</p>
+    <h2 class="title">Das sagen unsere Kunden</h2>
+    <div class="gold-line"></div>
+    <div class="g-score">
+      <span class="g-number">{{RATING}}</span>
+      <div>
+        <span class="g-stars" aria-hidden="true"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></span>
+        <p>aus <strong>{{REVIEW_COUNT}} Bewertungen</strong> bei Google</p>
+      </div>
     </div>
-    <div class="review">
-      <div class="stars" aria-label="5 von 5 Sternen">(5 × <svg class="icon"><use href="#i-star"/></svg>)</div>
-      <p class="review-text">„ECHTER BEWERTUNGSTEXT“</p>
-      <p class="review-name">NAME</p>
-    </div>
-    <div class="review-controls">
-      <button type="button" class="review-prev" aria-label="Vorherige Bewertung"><svg class="icon"><use href="#i-left"/></svg></button>
-      <div class="review-dots"><button type="button" aria-label="Bewertung 1"></button></div>
-      <button type="button" class="review-next" aria-label="Nächste Bewertung"><svg class="icon"><use href="#i-right"/></svg></button>
-    </div>
+    <p class="muted g-text">Unsere Kunden bewerten CANEX Hair Studio in Mülheim mit {{RATING}} von 5 Sternen. Lesen Sie alle Bewertungen direkt bei Google – und wenn Sie bei uns waren, freuen wir uns über Ihr Feedback.</p>
+    <a href="{{GOOGLE_MAPS}}" target="_blank" rel="noopener" class="btn btn-gold"><svg class="icon"><use href="#i-star"/></svg>Bewertungen bei Google lesen</a>
   </div>
 </section>
--->
 
 <!-- ================= KONTAKT ================= -->
 <section id="contact" class="section bg-secondary">
