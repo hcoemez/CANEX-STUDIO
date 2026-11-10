@@ -55,7 +55,7 @@ def business_jsonld():
         "name": b["NAME"],
         "url": SITE + "/",
         "image": SITE + "/assets/img/og-image.jpg",
-        "logo": SITE + "/assets/img/canex-logo.png",
+        "logo": SITE + "/assets/img/canex-logo-dark.png",
         "telephone": b["PHONE_INTL"],
         "email": b["EMAIL"],
         "priceRange": "€",
