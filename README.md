@@ -1,41 +1,33 @@
 # CANEX Hair Studio – Website (canex-studio.de)
 
-Neu aufgebaute Fassung der früheren Lovable-Seite: reines HTML/CSS/JavaScript,
-kein Baukasten, kein Build-Schritt. Jede Änderung auf dem Branch `main` wird
-automatisch per SFTP in den IONOS-Ordner `/public` hochgeladen.
+Statische Website (HTML/CSS/JS) für CANEX Hair Studio, Friseur & Barber in
+Mülheim an der Ruhr. Jede Änderung auf `main` wird automatisch gebaut und per
+SFTP zu IONOS hochgeladen (`.github/workflows/deploy.yml`).
 
 ## Aufbau
 
 ```
-site/                    ← alles hier drin geht 1:1 online
-  index.html             Startseite (alle Abschnitte)
-  impressum/index.html   Impressum
-  datenschutz/index.html Datenschutzerklärung
-  404.html               Fehlerseite
-  assets/css/style.css   Design (Farben/Schriften oben in :root)
-  assets/js/main.js      Menü, Galerie, Karte, Animationen
-  assets/img/            Bilder
-  .htaccess, robots.txt, sitemap.xml, favicon.ico
-.github/workflows/deploy.yml   automatischer Upload zu IONOS
+pages/       Inhalte der einzelnen Seiten (Meta-Block oben: Titel, Beschreibung, URL)
+partials/    head.html, header.html (Menü), footer.html (Footer + Kontakt-Button)
+static/      Bilder, CSS, JS, favicon, robots.txt, .htaccess – wird 1:1 kopiert
+build.py     setzt alles zu dist/ zusammen, erzeugt sitemap.xml und Google-Daten,
+             prüft interne Links. Firmendaten (Telefon, Adresse …) stehen NUR hier.
 ```
 
-## Einmalige Einrichtung des Uploads
+Lokal bauen: `python3 build.py` → Ergebnis in `dist/`.
 
-In GitHub unter **Settings → Secrets and variables → Actions → New repository secret**:
+## Seiten und Keywords
 
-| Name            | Wert                                   |
-|-----------------|----------------------------------------|
-| `SFTP_USER`     | SFTP-Benutzername aus IONOS (Hosting → SFTP) |
-| `SFTP_PASSWORD` | Passwort dieses SFTP-Benutzers         |
+| Seite | URL | Hauptkeyword |
+|---|---|---|
+| Startseite | `/` | Friseur / Barber Mülheim an der Ruhr |
+| Herrenhaarschnitt | `/herrenhaarschnitt-muelheim/` | haarschnitt männer, herren haarschnitt |
+| Fade & Übergang | `/fade-haarschnitt-muelheim/` | männer haarschnitt mit übergang, fade |
+| Bart & Rasur | `/bart-muelheim/` | bart schneiden, bart rasur |
+| Kinder & Jungs | `/kinderhaarschnitt-muelheim/` | haarschnitt jungs, kinderhaarschnitt |
+| Lange Haare & Locken | `/lange-haare-locken-maenner-muelheim/` | männer haarschnitt lang, locken schneiden mann |
+| Preise | `/preise/` | haarschnitt preis, haare schneiden preise |
 
-Danach unter **Actions → „Website zu IONOS hochladen“ → Run workflow** einmal
-manuell starten. Achtung: Der Upload ersetzt den kompletten Inhalt von
-`/public` (alte Lovable-Dateien werden entfernt).
+## Upload-Secrets (GitHub → Settings → Secrets and variables → Actions)
 
-## Hinweise
-
-- Schriften (Playfair Display, Raleway) werden beim Upload automatisch
-  heruntergeladen und lokal ausgeliefert – keine Verbindung zu Google Fonts.
-- Google Maps wird erst nach Klick geladen (Einwilligung).
-- Der Abschnitt „Bewertungen“ ist in `index.html` auskommentiert, bis echte
-  Bewertungen vorliegen.
+`SFTP_USER` (su967145, auf /public beschränkt) und `SFTP_PASSWORD`.
