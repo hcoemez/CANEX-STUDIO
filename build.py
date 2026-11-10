@@ -31,9 +31,11 @@ BUSINESS = {
     "STREET": "Kaiserstraße 52",
     "ZIP": "45468",
     "CITY": "Mülheim an der Ruhr",
-    "PHONE": "0157 37147882",
-    "PHONE_TEL": "+4915737147882",
-    "PHONE_INTL": "+49 157 37147882",
+    "PHONE": "0208 38582992",          # Salon (Festnetz) – wie im Google-Profil
+    "PHONE_TEL": "+4920838582992",
+    "PHONE_INTL": "+49 208 38582992",
+    "MOBILE": "0157 37147882",         # Handy / WhatsApp
+    "MOBILE_TEL": "+4915737147882",
     "EMAIL": "info@canex-studio.de",
     "WHATSAPP": "https://wa.me/4915737147882",
     "INSTAGRAM": "https://www.instagram.com/canexstudio_/",
