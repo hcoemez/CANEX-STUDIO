@@ -1,0 +1,54 @@
+# Lädt die Website nach jeder Änderung automatisch zu IONOS hoch.
+# Benötigte GitHub-Secrets (Settings → Secrets and variables → Actions):
+#   SFTP_USER      – SFTP-Benutzername aus dem IONOS-Hosting
+#   SFTP_PASSWORD  – Passwort dieses SFTP-Benutzers
+name: Website zu IONOS hochladen
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+env:
+  SFTP_HOST: access-5019872599.webspace-host.com
+  REMOTE_DIR: /public
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code holen
+        uses: actions/checkout@v4
+
+      - name: Schriften lokal einbinden (statt Google Fonts, DSGVO)
+        run: |
+          npm install --no-save --no-audit --no-fund --prefix /tmp/fonts \
+            @fontsource-variable/raleway @fontsource-variable/playfair-display
+          mkdir -p site/assets/fonts
+          for f in raleway/files/raleway-latin-wght-normal.woff2 \
+                   raleway/files/raleway-latin-wght-italic.woff2 \
+                   playfair-display/files/playfair-display-latin-wght-normal.woff2 \
+                   playfair-display/files/playfair-display-latin-wght-italic.woff2; do
+            cp "/tmp/fonts/node_modules/@fontsource-variable/$f" site/assets/fonts/
+          done
+          ls -la site/assets/fonts
+
+      - name: SFTP-Programm installieren
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+
+      - name: Hochladen nach IONOS (/public)
+        env:
+          SFTP_USER: ${{ secrets.SFTP_USER }}
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+        run: |
+          lftp -c "
+            set sftp:auto-confirm yes;
+            set net:max-retries 3;
+            set net:timeout 30;
+            open -u \"$SFTP_USER\",\"$SFTP_PASSWORD\" sftp://$SFTP_HOST;
+            mirror --reverse --delete --verbose --exclude-glob .DS_Store site/ $REMOTE_DIR/
+          "
