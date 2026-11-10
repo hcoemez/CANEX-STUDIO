@@ -122,7 +122,9 @@ def build_jsonld(meta, body):
                          "address": business_jsonld()["address"]},
         }
         if meta.get("price"):
-            svc["offers"] = {"@type": "Offer", "price": meta["price"], "priceCurrency": "EUR"}
+            svc["offers"] = {"@type": "Offer", "priceCurrency": "EUR",
+                             "priceSpecification": {"@type": "PriceSpecification",
+                                                    "minPrice": meta["price"], "priceCurrency": "EUR"}}
         blocks.append(svc)
     faqs = FAQ_RE.findall(body)
     if faqs:
