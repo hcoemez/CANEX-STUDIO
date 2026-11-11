@@ -426,6 +426,7 @@ svg.icon { width: 1rem; height: 1rem; flex-shrink: 0; fill: none; stroke: curren
 .side-box { background: var(--card); border: 1px solid var(--border); padding: 1.75rem; position: sticky; top: 6.5rem; }
 .side-box h2 { font-size: 1.25rem; margin-bottom: 1rem; }
 .side-box .price-list { margin-bottom: 1.5rem; }
+.price-hint { font-size: .8rem; color: var(--muted); font-style: italic; margin: -.75rem 0 .75rem; }
 .side-box .btn { width: 100%; padding: .9rem 1rem; letter-spacing: .1em; margin-top: .75rem; }
 .side-box .btn-wa { background: #25d366; color: #0d0d0d; }
 .side-box .btn-wa:hover { background: #3be07a; }
