@@ -190,6 +190,16 @@ svg.icon { width: 1rem; height: 1rem; flex-shrink: 0; fill: none; stroke: curren
 @media (min-width: 768px) { .about-image img { height: 600px; } }
 .about-image .frame::after { content: none; }
 .about-image img, .team-card .photo, .gallery-item { box-shadow: 0 10px 30px rgba(0,0,0,.15); }
+
+/* Foto bei "Über mich": weiche Ränder, die in den Hintergrund übergehen */
+.about-image .frame { overflow: visible; }
+.about-image img {
+  box-shadow: none !important;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 22%, #000 78%, transparent 100%), linear-gradient(to bottom, transparent 0%, #000 18%, #000 72%, transparent 100%);
+  -webkit-mask-composite: source-in;
+          mask-image: linear-gradient(to right, transparent 0%, #000 22%, #000 78%, transparent 100%), linear-gradient(to bottom, transparent 0%, #000 18%, #000 72%, transparent 100%);
+          mask-composite: intersect;
+}
 .about-image .deco { position: absolute; right: -1rem; bottom: -1rem; width: 8rem; height: 8rem; border: 2px solid rgb(var(--gold-rgb) / .3); pointer-events: none; }
 .about-text .subtitle { margin-bottom: 1rem; }
 .about-text h2 { margin-bottom: .5rem; }
