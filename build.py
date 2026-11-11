@@ -216,6 +216,7 @@ def main():
         xml.append(f"  <url><loc>{SITE}{p}</loc><lastmod>{today}</lastmod><priority>{prio}</priority></url>")
     xml.append("</urlset>")
     (DIST / "sitemap.xml").write_text("\n".join(xml) + "\n", encoding="utf-8")
+    (DIST / "sitemap.txt").write_text("\n".join(SITE + p for p, _ in sitemap) + "\n", encoding="utf-8")
 
     # Interne Links prüfen
     broken = []

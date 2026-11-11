@@ -1,3 +1,8 @@
+# Dateitypen eindeutig ausliefern (wichtig für Google-Sitemap)
+AddType application/xml .xml
+AddType text/plain .txt
+AddDefaultCharset UTF-8
+
 # Eigene Fehlerseite
 ErrorDocument 404 /404.html
 
