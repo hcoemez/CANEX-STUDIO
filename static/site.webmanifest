@@ -1,0 +1,10 @@
+{
+  "name": "CANEX Hair Studio",
+  "short_name": "CANEX",
+  "icons": [
+    { "src": "/favicon-192.png", "sizes": "192x192", "type": "image/png" }
+  ],
+  "theme_color": "#2a2927",
+  "background_color": "#e8e6e2",
+  "display": "browser"
+}

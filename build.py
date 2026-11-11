@@ -44,7 +44,7 @@ BUSINESS = {
     # Öffnungszeiten als Text (oben in OPENING_HOURS für Google ebenfalls anpassen)
     # Google-Bewertung (Stand manuell pflegen)
     "RATING": "4,9",
-    "REVIEW_COUNT": "29",
+    "REVIEW_COUNT": "32",
     "PLACE_ID": "ChIJBb0077vBuEcRafwgK0WFjVk",
     "GOOGLE_MAPS": "https://www.google.com/maps/place/?q=place_id:ChIJBb0077vBuEcRafwgK0WFjVk",
     "REVIEW_LINK": "https://search.google.com/local/writereview?placeid=ChIJBb0077vBuEcRafwgK0WFjVk",
