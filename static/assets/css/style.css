@@ -510,3 +510,7 @@ svg.icon { width: 1rem; height: 1rem; flex-shrink: 0; fill: none; stroke: curren
 .prose .callout p { color: #cfccc6; font-size: .95rem; }
 .prose .callout a:not(.btn) { color: var(--gold-light); border-bottom-color: rgb(var(--gold-rgb) / .5); }
 .prose .callout strong { color: #fff; }
+
+/* WhatsApp-Button (überall gleich) */
+.btn.btn-wa { background: #25d366; color: #0d0d0d; border: 0; }
+.btn.btn-wa:hover { background: #3be07a; }
